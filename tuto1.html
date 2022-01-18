@@ -34,23 +34,66 @@
             </ul>
         </div>
     </nav>
-    <!--LIST SECTION-->
-    <div class="list">
-        <h1>Tutoriales tech</h1>
-        <div class="list__content">
-            <div class="card__tuto">
-                <div class="card__img">
-                    <img class="card__img-main" src="./images/pic-2.jpg">
+    <!--CONTENT TUTO SECTION-->
+    <div class="tuto">
+        <h1>Aprende a instalar Let's Encrypt SSL</h1>
+        <div class="tuto__content">
+            <div class="tuto__content-info">
+                <div class="tuto__description">
+                    <div class="tuto__description-autor">
+                        <h4>
+                            Autor: José Deodanes
+                        </h4>
+                        <p>Programador</p>
+                    </div>
+                    <div class="tuto__description-date">
+                        <p>Publicado: 18/01/2022</p>
+                    </div>
                 </div>
-                <div class="card__content">
-                    <h3 class="card__title">Lets encrypt ssl</h3>
-                    <p class="card__description">Aprende a configurar el certificado SSL</p>
-                    <a class="btn btn-success" href="./tuto1.html">
-                        Ver
-                    </a>
+                <div class="tuto__information">
+                    <div class="tuto__img">
+                        <img src="./images/tuto_ssl/https.jpg">
+                    </div>
+                    <h2>1. Paquetes requeridos</h2>
+                    <p>Primero instalaremos los siguientes comandos:</p>
+                    <p><span>#apt install software-properties-common -y</span></p>
+                    <p>Ahora, instalaremos el programa Certbot, el cual es un demonio que aplica el certificado SSL a tu dominio, pàra instalar este programa, lo haremos con el siguiente comando</p>
+                    <p><span>#apt install certbot -y</span></p>
+                    <p>Listo, ahora instalaremos el paquete de CertBot para Apache</p>
+                    <p><span>#apt install python3-certbot-apache</span></p>
+                    <p>Listo, ya tenemos CertBot instalado en nuestro servidor.</p>
+                    <h2>
+                        2. Instalaremos el certificado Let's Encrypt
+                    </h2>
+                    <p>Use el comando certbot para crear un certificado Let's Encrypt y configure Apache para usar el certificado.</p>
+                    <p><span>#certbot --apache</span></p>
+                    <p>
+                        Ahora, se ejecuta un shells y seguiras estos pasos:
+                    </p>
+                    <p><span>1.  (Enter 'c' to cancel): Tu correo electrónico << Enter Email ID</span></p>
+                    <p><span>2. agree in order to register with the ACME server. Do you agree? Y</span></p>
+                    <p><span>3. (Y)es/(N)o: N << Subscriber to Newsletter</span></p>
+                    <p>
+                        Seleccione el sitio para instalar el certificado SSL de Let's Encrypt.
+                    </p>
+                    <p>Listo, nuestro certificado ya esta instalado</p>
+                    <h2>
+                        Renovar el certificado
+                    </h2>
+                    <p>
+                        Para la renovación automática del certificado SSL debes de ejecutar el siguiente comando 
+                    </p>
+                    <p><span># certbot renew --force-renewal</span></p>
+                    <p>Si genera error, usa este otro:</p>
+                    <p><span># certbot renew --dry-run</span></p>
+                    <h2>Instalar el certificado del golpe</h2>
+                    <p>Bien, el siguiente comando instala de forma automática el certificado, de esta manera te ahorras de ir seleccionando de forma manual, para esto, usa el siguiente comando: </p>
+                    <p><span>#certbot certonly --standalone --preferred-challenges http --agree-tos --email tu_correo@outlook.com -d tu_dominio.com</span></p>
                 </div>
             </div>
-            
+            <div class="tuto__content-pub">
+                <h3>Publicidad</h3>
+            </div>
         </div>
     </div>
     <!---Footer Section-->
