@@ -34,7 +34,7 @@ p,span{
     position: sticky;
     top: 0;
     z-index: 999;
-    transition: 1s;
+    transition: 0.4s;
 }
 
 .navbar.scroll{
