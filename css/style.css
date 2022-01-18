@@ -625,9 +625,9 @@ p,span{
         
     }
     .tuto__information p{
-        line-height: 1.5;
+        line-height: 1.4;
         text-align: justify;
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 }
 /*Footer US*/
