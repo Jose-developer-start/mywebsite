@@ -34,36 +34,83 @@
             </ul>
         </div>
     </nav>
-    <!--LIST SECTION-->
-    <div class="list">
-        <h1>Tutoriales tech</h1>
-        <div class="list__content">
-            <div class="card__tuto">
-                <div class="card__img">
-                    <img class="card__img-main" src="./images/tuto_ssl/https.jpg">
+    <!--CONTENT TUTO SECTION-->
+    <div class="tuto">
+        <h1>HOST virtuales en Apache2</h1>
+        <div class="tuto__content">
+            <div class="tuto__content-info">
+                <div class="tuto__description">
+                    <div class="tuto__description-autor">
+                        <h4>
+                            Autor: José Deodanes
+                        </h4>
+                        <p>Programador</p>
+                    </div>
+                    <div class="tuto__description-date">
+                        <p>Publicado: 18/01/2022</p>
+                    </div>
                 </div>
-                <div class="card__content">
-                    <h3 class="card__title">Lets encrypt ssl</h3>
-                    <p class="card__description">Aprende a configurar el certificado SSL</p>
-                    <a class="btn btn-success" href="./tuto1.html">
-                        Ver
-                    </a>
-                </div>
-            </div>
+                <div class="tuto__information">
+                    <div class="tuto__img">
+                        <img src="./images/host_virtual_apache/back.jpg">
+                    </div>
+                    <h2>1. Paquetes requeridos</h2>
+                    <p>Instalaremos el paquete Apache2 con el siguiente comando:</p>
+                    <p><span># apt install apache2</span></p>
+                    <h2>2. Configuración</h2>
+                    <p>Agregar las siguiente líneas en el archivo /etc/apache2/apache2.conf</p>
+                    
+                       <code><pre style="color: #fff;">
 
-            <div class="card__tuto">
-                <div class="card__img">
-                    <img class="card__img-main" src="./images/host_virtual_apache/host.png">
-                </div>
-                <div class="card__content">
-                    <h3 class="card__title">HOST en Apache2</h3>
-                    <p class="card__description">Aprende a configurar Host virtuales</p>
-                    <a class="btn btn-success" href="./host-apache2.html">
-                        Ver
-                    </a>
+                        &ltDirectory /var/www/tu_dominio.com/public/>
+                            Options Indexes FollowSymLinks
+                            AllowOverride All
+                            Require all granted
+                        &lt/Directory>                        
+                        </pre></code>
+                    <p>
+                        Para crear un Apache virtual host, vamos a utilizar el editor nano de la siguiente forma:
+                    </p>
+                    <p>
+                        <span># nano /etc/apache2/sites-available/tu_dominio.com.conf</span>
+                    </p>
+                    <p>
+                        <code><pre style="color: #fff;">
+                        &ltVirtualHost *:80>
+                            ServerName tu_dominio.com
+                            ServerAlias www.tu_dominio.com
+                            ServerAdmin webmaster@localhost
+                            DocumentRoot /var/www/tu_dominio.com/public/
+
+                            ErrorLog ${APACHE_LOG_DIR}/error.log
+                            CustomLog ${APACHE_LOG_DIR}/access.log combined
+                        &lt/VirtualHost>
+                        </pre></code>
+                    </p>
+                    <p>Ya casi terminamos, lo único que queda por hacer es registrar el nuevo vhost. Para esto ejecutamos el siguiente comando:</p>
+                    <p>
+                        <span>
+                            # sudo a2ensite tu_dominio.com.conf
+                        </span>
+                    </p>
+                    <p>Y, reiniciamos nuestro servidor web Apache:</p>
+                    <p>
+                        <span>
+                            # sudo service apache2 reload
+                        </span>
+                    </p>
+                    <h2>Opcional. Habilitar el módulo mod_rewrite de Apache</h2>
+                    <p>Este paso es importante para que funcionen correctamente nuestras rutas de Laravel. Ejecutamos el siguiente comando:</p>
+                    <p>
+                        <span>
+                            # sudo a2enmod rewrite
+                        </span>
+                    </p>
                 </div>
             </div>
-            
+            <div class="tuto__content-pub">
+                <h3>Publicidad</h3>
+            </div>
         </div>
     </div>
     <!---Footer Section-->
