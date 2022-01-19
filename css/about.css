@@ -93,6 +93,7 @@ ion-icon{
     }
     .about h1{
         margin: 0px;
+        border: none;
     }
     .about__container{
         flex-wrap: wrap;
